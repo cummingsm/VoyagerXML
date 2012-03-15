@@ -1,0 +1,18 @@
+This repository contains five services that return XML data in response to an http request. There is also detailed documentation in the Word file.
+
+The first four services are independent elements that get a piece of the picture. 
+
+The last service, getbibsetxml.cgi, does everything for a given bib id - it returns an XML set consisting of:
+
+	bibliographic data 
+	item(s) link to the bib record
+	the item(s) status 
+	the item(s) temporary location. 
+
+The last service has all of the values we currently use in Surveyor to determine an item's consortium loan eligibility: 
+
+	library 
+	permanent location description 
+	temporary location description 
+	item status description
+
