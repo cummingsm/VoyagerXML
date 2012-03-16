@@ -81,17 +81,17 @@ if ( length($sd) eq 9 )
    @tokens = split(/\|/, $document);
    #
    print "<ITEMSTATUS>\n";
-   print "<ITEMID>"; 		
+   print "<IS.ITEMID>"; 		
 		print trim($tokens[1]); 
-   print "</ITEMID>\n";
+   print "</IS.ITEMID>\n";
    #
-   print "<ITEMSTATUSDATE>"; 	
+   print "<IS.ITEMSTATUSDATE>"; 	
 		print trim($tokens[3]); 
-   print "</ITEMSTATUSDATE>\n";
+   print "</IS.ITEMSTATUSDATE>\n";
    #
-   print "<ITEMSTATUSDESC>"; 	
+   print "<IS.ITEMSTATUSDESC>"; 	
 		print trim($tokens[5]); 
-   print "</ITEMSTATUSDESC>\n";
+   print "</IS.ITEMSTATUSDESC>\n";
    print "</ITEMSTATUS>";
    #cleanup /tmp
    `rm $Fname`;
@@ -99,17 +99,17 @@ if ( length($sd) eq 9 )
 } else {
   # ERROR return
    print "<ITEMSTATUS>\n";
-   print "<ITEMID>"; 		
+   print "<IS.ITEMID>"; 		
 		print $formdata{itemid}; 
-   print "</ITEMID>\n";
+   print "</IS.ITEMID>\n";
    #
-   print "<ITEMSTATUSDATE>"; 	
+   print "<IS.ITEMSTATUSDATE>"; 	
 		print "01-JAN-00"; 
-   print "</ITEMSTATUSDATE>\n";
+   print "</IS.ITEMSTATUSDATE>\n";
    #
-   print "<ITEMSTATUSDESC>"; 	
+   print "<IS.ITEMSTATUSDESC>"; 	
 		print "Invalid Item ID"; 
-   print "</ITEMSTATUSDESC>\n";
+   print "</IS.ITEMSTATUSDESC>\n";
    print "</ITEMSTATUS>";
 }
 
