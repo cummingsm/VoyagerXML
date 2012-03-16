@@ -65,13 +65,13 @@ if (-s $Fname) {
 	`rm $Fname`;
 } else {
  	print "<TEMPLOC>\n";
-   	print "<ITEMID>";
+   	print "<TL.ITEMID>";
                 print $formdata{itemid};
-   	print "</ITEMID>\n";
+   	print "</TL.ITEMID>\n";
    	#
-   	print "<TEMPLOCDESC>";
+   	print "<TL.TEMPLOCDESC>";
                 print "No record found for item requested";
-   	print "</TEMPLOCDESC>\n";
+   	print "</TL.TEMPLOCDESC>\n";
  	print "</TEMPLOC>";
 } 
                                                           
