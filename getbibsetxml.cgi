@@ -149,40 +149,40 @@ if (-s $BIBname) {
  	#
 	print "<ITEM>\n\n";
 	#
-   	print "<BIBID>"; 		
+   	print "<I.BIBID>"; 		
 		print trim($itemtokens[1]); 
-   	print "</BIBID>\n";
+   	print "</I.BIBID>\n";
    	#
-   	print "<MFHDID>"; 	
+   	print "<I.MFHDID>"; 	
 		print trim($itemtokens[3]); 
-   	print "</MFHDID>\n";
-   	print "<ITEMID>"; 	
+   	print "</I.MFHDID>\n";
+   	print "<I.ITEMID>"; 	
 		print trim($itemtokens[5]); 
-   	print "</ITEMID>\n";
-   	print "<ITEMENUM>"; 	
+   	print "</I.ITEMID>\n";
+   	print "<I.ITEMENUM>"; 	
 		print trim($itemtokens[7]); 
-   	print "</ITEMENUM>\n";
-   	print "<ITEMTYPEDISPLAY>"; 	
+   	print "</I.ITEMENUM>\n";
+   	print "<I.ITEMTYPEDISPLAY>"; 	
 		print trim($itemtokens[9]); 
-   	print "</ITEMTYPEDISPLAY>\n";
-   	print "<LIBRARYNAME>"; 	
+   	print "</I.ITEMTYPEDISPLAY>\n";
+   	print "<I.LIBRARYNAME>"; 	
 		print trim($itemtokens[11]); 
-   	print "</LIBRARYNAME>\n";
-   	print "<NUCCODE>"; 	
+   	print "</I.LIBRARYNAME>\n";
+   	print "<I.NUCCODE>"; 	
 		print trim($itemtokens[13]); 
-   	print "</NUCCODE>\n";
-   	print "<PERMLOCATION>"; 	
+   	print "</I.NUCCODE>\n";
+   	print "<I.PERMLOCATION>"; 	
 		print trim($itemtokens[15]); 
-   	print "</PERMLOCATION>\n";
-   	print "<PERMLOCDESC>"; 	
+   	print "</I.PERMLOCATION>\n";
+   	print "<I.PERMLOCDESC>"; 	
 		print trim($itemtokens[17]); 
-   	print "</PERMLOCDESC>\n";
-   	print "<TEMPLOCATION>"; 	
+   	print "</I.PERMLOCDESC>\n";
+   	print "<I.TEMPLOCATION>"; 	
 		print trim($itemtokens[19]); 
-   	print "</TEMPLOCATION>\n";
-   	print "<ENDREC>"; 	
+   	print "</I.TEMPLOCATION>\n";
+   	print "<I.ENDREC>"; 	
 		print trim($itemtokens[25]); 
-   	print "</ENDREC>\n";
+   	print "</I.ENDREC>\n";
 	#
 	#  continue with each item, retrieve temporary location, then status
         #
@@ -205,23 +205,23 @@ if (-s $BIBname) {
 	@locationtokens = split(/\|/, $document);
 	# Note: No trim required.
  	print "<TEMPLOC>\n";
-   	print "<ITEMID>";
+   	print "<TL.ITEMID>";
                 print $locationtokens[1];
-   	print "</ITEMID>\n";
+   	print "</TL.ITEMID>\n";
    	#
-   	print "<TEMPLOCDESC>";
+   	print "<TL.TEMPLOCDESC>";
                 print $locationtokens[3];
-   	print "</TEMPLOCDESC>\n";
+   	print "</TL.TEMPLOCDESC>\n";
  	print "</TEMPLOC>";
 	`rm $LOCname`;
 	} else {
  		print "<TEMPLOC>\n";
-   		print "<ITEMID>";
+   		print "<TL.ITEMID>";
                 print $item;
-   		print "</ITEMID>\n";
-   		print "<TEMPLOCDESC>";
+   		print "</TL.ITEMID>\n";
+   		print "<TL.TEMPLOCDESC>";
                 print "NA";
-   		print "</TEMPLOCDESC>\n";
+   		print "</TL.TEMPLOCDESC>\n";
  		print "</TEMPLOC>";
 		} 
 	# -----------------------------------------------------------------
@@ -259,17 +259,17 @@ if (-s $BIBname) {
    	@statustokens = split(/\|/, $document);
    	#
    	print "<ITEMSTATUS>\n";
-   	print "<ITEMID>"; 		
+   	print "<IS.ITEMID>"; 		
 		print trim($statustokens[1]); 
-   	print "</ITEMID>\n";
+   	print "</IS.ITEMID>\n";
    	#
-   	print "<ITEMSTATUSDATE>"; 	
+   	print "<IS.ITEMSTATUSDATE>"; 	
 		print trim($statustokens[3]); 
-   	print "</ITEMSTATUSDATE>\n";
+   	print "</IS.ITEMSTATUSDATE>\n";
    	#
-   	print "<ITEMSTATUSDESC>"; 	
+   	print "<IS.ITEMSTATUSDESC>"; 	
 		print trim($statustokens[5]); 
-   	print "</ITEMSTATUSDESC>\n";
+   	print "</IS.ITEMSTATUSDESC>\n";
    	print "</ITEMSTATUS>";
    	#cleanup /tmp
    	`rm $Fname`;
@@ -277,17 +277,17 @@ if (-s $BIBname) {
 	} else {
   	# ERROR return
    	print "<ITEMSTATUS>\n";
-   	print "<ITEMID>"; 		
+   	print "<IS.ITEMID>"; 		
 		print $item; 
-   	print "</ITEMID>\n";
+   	print "</IS.ITEMID>\n";
    	#
-   	print "<ITEMSTATUSDATE>"; 	
+   	print "<IS.ITEMSTATUSDATE>"; 	
 		print "01-JAN-00"; 
-   	print "</ITEMSTATUSDATE>\n";
+   	print "</IS.ITEMSTATUSDATE>\n";
    	#
-   	print "<ITEMSTATUSDESC>"; 	
+   	print "<IS.ITEMSTATUSDESC>"; 	
 		print "Invalid Item ID"; 
-   	print "</ITEMSTATUSDESC>\n";
+   	print "</IS.ITEMSTATUSDESC>\n";
    	print "</ITEMSTATUS>";
 	}
 	# end of get current status
@@ -297,44 +297,44 @@ if (-s $BIBname) {
   `rm $ITEMSname`;
 } else {
         # ERROR. The query output file was empty so print null values
-	# in the same structure as a valid record.
+	# in the same structure as a valid item record.
  	print "<ITEMSLIST>\n";
  	#
 	print "<ITEM>\n";
-   	print "<BIBID>"; 		
+   	print "<I.BIBID>"; 		
 		print $formdata{bibid};
-   	print "</BIBID>\n";
+   	print "</I.BIBID>\n";
    	#
-   	print "<MFHDID>"; 	
+   	print "<I.MFHDID>"; 	
 		print "0";
-   	print "</MFHDID>\n";
-   	print "<ITEMID>"; 	
+   	print "</I.MFHDID>\n";
+   	print "<I.ITEMID>"; 	
 		print "0";
-   	print "</ITEMID>\n";
-   	print "<ITEMENUM>"; 	
+   	print "</I.ITEMID>\n";
+   	print "<I.ITEMENUM>"; 	
 		print "0";
-   	print "</ITEMENUM>\n";
-   	print "<ITEMTYPEDISPLAY>"; 	
+   	print "</I.ITEMENUM>\n";
+   	print "<I.ITEMTYPEDISPLAY>"; 	
 		print "No record found for requested bib id";
-   	print "</ITEMTYPEDISPLAY>\n";
-   	print "<LIBRARYNAME>"; 	
+   	print "</I.ITEMTYPEDISPLAY>\n";
+   	print "<I.LIBRARYNAME>"; 	
 		print "NA";
-   	print "</LIBRARYNAME>\n";
-   	print "<NUCCODE>"; 	
+   	print "</I.LIBRARYNAME>\n";
+   	print "<I.NUCCODE>"; 	
 		print "NA";
-   	print "</NUCCODE>\n";
-   	print "<PERMLOCATION>"; 	
+   	print "</I.NUCCODE>\n";
+   	print "<I.PERMLOCATION>"; 	
 		print "0";
-   	print "</PERMLOCATION>\n";
-   	print "<PERMLOCDESC>"; 	
+   	print "</I.PERMLOCATION>\n";
+   	print "<I.PERMLOCDESC>"; 	
 		print "NA";
-   	print "</PERMLOCDESC>\n";
-   	print "<TEMPLOCATION>"; 	
+   	print "</I.PERMLOCDESC>\n";
+   	print "<I.TEMPLOCATION>"; 	
 		print "0";
-   	print "</TEMPLOCATION>\n";
-   	print "<ENDREC>"; 	
+   	print "</I.TEMPLOCATION>\n";
+   	print "<I.ENDREC>"; 	
 		print "NULL";
-   	print "</ENDREC>\n";
+   	print "</I.ENDREC>\n";
 	print "</ITEM>";
 	#
 	# end of empty recordset for items
