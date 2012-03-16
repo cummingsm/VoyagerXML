@@ -54,13 +54,13 @@ if (-s $Fname) {
 	@tokens = split(/\|/, $document);
 	# Note: No trim required.
  	print "<TEMPLOC>\n";
-   	print "<ITEMID>";
+   	print "<TL.ITEMID>";
                 print $tokens[1];
-   	print "</ITEMID>\n";
+   	print "</TL.ITEMID>\n";
    	#
-   	print "<TEMPLOCDESC>";
+   	print "<TL.TEMPLOCDESC>";
                 print $tokens[3];
-   	print "</TEMPLOCDESC>\n";
+   	print "</TL.TEMPLOCDESC>\n";
  	print "</TEMPLOC>";
 	`rm $Fname`;
 } else {
