@@ -286,7 +286,7 @@ if (-s $BIBname) {
    	print "</IS.ITEMSTATUSDATE>\n";
    	#
    	print "<IS.ITEMSTATUSDESC>"; 	
-		print "Invalid Item ID"; 
+		print "Not Charged / Not determined"; 
    	print "</IS.ITEMSTATUSDESC>\n";
    	print "</ITEMSTATUS>";
 	}

@@ -10,6 +10,19 @@ use CGI;
 $CGI::POST_MAX=1024*100; # MAX 100k POSTS
 $CGI::DISABLE_UPLOADS=1; # no uploads
 
+# trim spaces and return NULL if field is empty
+sub trim
+{
+        my $string = shift;
+        $string =~ s/^\s+//;
+        $string =~ s/\s+$//;
+        if ( length($string) > 0 ){
+        return $string;
+        } else {
+        return "NULL";
+        }
+}
+
 #
 # This line sets the method that this script was accessed (GET or POST)
 my $method = $ENV{'REQUEST_METHOD'};
@@ -53,10 +66,7 @@ if (-s $Fname) {
 	close (FILE);
 	@tokens = split(/\|/, $document);
 	# Note: No trim required.
- 	print "<TEMPLOC>\n";
-   	print "<TL.ITEMID>";
-                print $tokens[1];
-   	print "</TL.ITEMID>\n";
+ 	print "<TEMPLOC TL.ITEMID='".trim($tokens[1])."'>\n";
    	#
    	print "<TL.TEMPLOCDESC>";
                 print $tokens[3];
@@ -64,14 +74,7 @@ if (-s $Fname) {
  	print "</TEMPLOC>";
 	`rm $Fname`;
 } else {
- 	print "<TEMPLOC>\n";
-   	print "<TL.ITEMID>";
-                print $formdata{itemid};
-   	print "</TL.ITEMID>\n";
-   	#
-   	print "<TL.TEMPLOCDESC>";
-                print "No record found for item requested";
-   	print "</TL.TEMPLOCDESC>\n";
+ 	print "<TEMPLOC STATUS='NA'>\n";
  	print "</TEMPLOC>";
 } 
                                                           
