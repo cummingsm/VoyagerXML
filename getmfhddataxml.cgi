@@ -116,6 +116,7 @@ if (-s $Fname) {
    	print "</M.MFHDID>\n";
 	#
 	# end of empty recordset
+	print "</MFHD>";
  	print "</HOLDINGS>";
 }
 
